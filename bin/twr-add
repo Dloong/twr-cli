@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+const inquirer = require('inquirer')
+const chalk = require('chalk')
+const fs = require('fs')
+// 读取根目录下的 template.json
+const tplObj = require(`${__dirname}/../template`)
+
+let question = [
+    {
+        name: "name",
+        type: "input",
+        message: "Please input your template name",
+        validate(val) {
+            if (val === '') {
+                return 'name is required'
+            } else if (tplObj[val]) {
+                return 'Template has already existed'
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        name: "url",
+        type: "input",
+        message: "Please input template address",
+        validate(val) {
+            if(val === "") {
+                return "The url is required"
+            } else {
+                return true
+            }
+        }
+    }
+]
+
+inquirer
+    .prompt(question).then(answers => {
+        let {name, url} = answers;
+        tplObj[name] = url.replace(/[\u0000-\u0019]/g, '')
+        fs.writeFile(`${__dirname}/../template.json`, JSON.stringify(tplObj), 'utf-8',err => {
+
+        })
+    })

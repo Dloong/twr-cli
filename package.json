@@ -1,0 +1,31 @@
+{
+  "name": "twr-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dloong/twr-cli.git",
+  "author": "shilong.duan@gmail.com",
+  "license": "MIT",
+  "scripts": {
+      "serve": "cross-env-shell NODE_ENV=development ts-node --files -P ./build/tsconfig.json ./build/scripts/start.ts --open"
+  },
+  "bin": {
+      "xr": "bin/twr",
+      "xr-add": "bin/twr-add",
+      "xr-delete": "bin/twr-delete",
+      "xr-list": "bin/twr-list",
+      "xr-init": "bin/twr-init"
+  },
+  "dependencies": {
+      "chalk": "^4.1.0",
+      "commander": "^6.1.0",
+      "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+      "husky": "^4.2.5"
+  },
+  "husky": {
+      "hooks": {
+          "commit-msg": "commitlint -c .commitlintrc.js -E HUSKY_GIT_PARAMS"
+      }
+  }
+}
