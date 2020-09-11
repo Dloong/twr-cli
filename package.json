@@ -1,5 +1,5 @@
 {
-  "name": "twr-cli",
+  "name": "ts-webapck-react-cli",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Dloong/twr-cli.git",
