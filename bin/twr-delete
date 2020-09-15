@@ -1,37 +1,36 @@
 #!/usr/bin/env node
 
+const program = require('commander')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const fs = require('fs')
+const { error } = require('console')
 const tplObj = require(`${__dirname}/../template`)
 
-let question = [
-  {
-    name: "name",
-    message: "请输入要删除的模板名称",
-    validate (val) {
-      if (val === '') {
-        return 'Name is required!'
-      } else if (!tplObj[val]) {
-        return 'Template does not exist!'
-      } else  {
-        return true
-      }
-    }
-  }
-]
 
-inquirer
-  .prompt(question).then(answers => {
-    let { name } = answers;
-    delete tplObj[name]
+program
+    .usage('<template-name>')
+program.parse(process.argv)
+// 当没有输入参数的时候给个提示
+if (program.args.length < 1) return program.help()
+const deleteName = program.args[0]
+const templateList = Object.keys(tplObj)
+
+if (!tplObj[deleteName]) {
+    console.log(chalk.red('x  Template does not exist!'))
+    return false
+} else if (templateList.length === 1) {
+  console.log(chalk.red('x You should keep at least one template!'))
+    return ""
+} else {
+    delete tplObj[deleteName]
     // 更新 template.json 文件
     fs.writeFile(`${__dirname}/../template.json`, JSON.stringify(tplObj), 'utf-8', err => {
-      if (err) console.log(err)
-      console.log('\n')
-      console.log(chalk.green('Deleted successfully!\n'))
-      console.log(chalk.grey('The latest template list is: \n'))
-      console.log(tplObj)
-      console.log('\n')
+        if (err) console.log(err)
+        console.log('\n')
+        console.log(chalk.green('✅Deleted successfully!\n'))
+        console.log(chalk.grey('The latest template list is: \n'))
+        console.log(tplObj)
+        console.log('\n')
     })
-  })
+}
