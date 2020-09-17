@@ -1,0 +1,38 @@
+## 简介
+
+TWR最初是用来搭建基于Typescript、Webpack、React的脚手架。
+
+
+
+API
+
+```
+twr：可以查看所有命令以及版本
+```
+
+```
+twr add: 可以添加远程项目名称，添加自定义模版
+```
+
+```
+twr delete: 可以删除模版
+```
+
+```
+twr list: 可以查看模版list
+```
+
+
+
+## 第一步：
+
+```javascript
+npm i ts-webapck-react-cli
+```
+
+## 第二步：
+
+```javascript
+twr init ts  <your project name>
+```
+
