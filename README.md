@@ -12,6 +12,8 @@ twr：可以查看所有命令以及版本
 
 ```
 twr add: 可以添加远程项目名称，添加自定义模版
+如：
+![image](https://user-images.githubusercontent.com/54270712/93577533-c44a3c00-f9ce-11ea-84f9-d1562468b097.png)
 ```
 
 ```
