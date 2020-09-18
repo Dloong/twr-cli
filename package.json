@@ -1,6 +1,6 @@
 {
   "name": "ts-webapck-react-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "description": "模版脚手架",
   "repository": "https://github.com/Dloong/react-webpack",
