@@ -2,6 +2,7 @@
   "name": "ts-webapck-react-cli",
   "version": "1.0.1",
   "main": "index.js",
+  "description": "模版脚手架",
   "repository": "https://github.com/Dloong/react-webpack",
   "author": "shilong.duan@gmail.com",
   "license": "MIT",
