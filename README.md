@@ -31,8 +31,9 @@ twr list: 可以查看模版list
 ```javascript
 npm i ts-webapck-react-cli
 
-twr --version 
-如果出现版本好号，代表安装成功
+// 如果出现版本好号，代表安装成功
+twr --version
+
 ```
 
 
@@ -41,13 +42,13 @@ twr --version
 
 ```javascript
 // 可以看到默认的模版
-twr list 
+twr list
 { Default: 'Dloong/react-webpack' }
 
 //也可以通过 twr add 来添加模版
 
 // 可以下载模版
-twr init 
+twr init
 
 ```
 
